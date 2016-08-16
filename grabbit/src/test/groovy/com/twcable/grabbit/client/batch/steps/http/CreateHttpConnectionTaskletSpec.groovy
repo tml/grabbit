@@ -123,7 +123,7 @@ class CreateHttpConnectionTaskletSpec extends Specification {
     def "getPreemptiveAuthContext() creates an authentication cache correctly"() {
         given:
         final CreateHttpConnectionTasklet tasklet = new CreateHttpConnectionTasklet()
-        URI requestURI = new URI("http://localhost:4503/grabbit/content?path=%2Fcontent%2Ftest&after=2008-09-22T13%3A57%3A31.2311892-04%3A00")
+        URI requestURI = new URI("http://localhost:4503/grabbit/job?path=%2Fcontent%2Ftest&after=2008-09-22T13%3A57%3A31.2311892-04%3A00")
 
         when:
         final HttpClientContext context = tasklet.getPreemptiveAuthContext(requestURI)
@@ -156,6 +156,6 @@ class CreateHttpConnectionTaskletSpec extends Specification {
         final URI uri = tasklet.buildURIForRequest(jobParameters)
 
         then:
-        uri.toString() == "http://localhost:4503/grabbit/content?path=%252Fcontent%252Ftest&after=2008-09-22T13%253A57%253A31.2311892-04%253A00&excludePath=%252Fexclude&excludePath=%252Fexclude%252Fmetoo"
+        uri.toString() == "http://localhost:4503/grabbit/job?path=%252Fcontent%252Ftest&after=2008-09-22T13%253A57%253A31.2311892-04%253A00&excludePath=%252Fexclude&excludePath=%252Fexclude%252Fmetoo"
     }
 }

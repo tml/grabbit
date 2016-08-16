@@ -101,7 +101,7 @@ class CreateHttpConnectionTasklet implements Tasklet {
         final String encodedContentAfterDate = URLEncoder.encode(contentAfterDate, 'utf-8')
         final String encodedPath = URLEncoder.encode(path, 'utf-8')
 
-        URIBuilder uriBuilder = new URIBuilder(scheme: "http", host: host, port: port as Integer, path: "/grabbit/content")
+        URIBuilder uriBuilder = new URIBuilder(scheme: "http", host: host, port: port as Integer, path: "/grabbit/job")
         uriBuilder.addParameter("path", encodedPath)
         uriBuilder.addParameter("after", encodedContentAfterDate)
         for(String excludePath : excludePaths) {
